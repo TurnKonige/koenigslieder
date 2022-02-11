@@ -1,7 +1,6 @@
-import { Box, Link, Text, IconButton, Tooltip } from "@chakra-ui/react";
+import { Box, Link, Text } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { AiFillGithub } from "react-icons/ai";
-import { FaLinkedinIn } from "react-icons/fa";
 
 export const Footer: React.FC<{}> = () => {
   return (
@@ -9,7 +8,7 @@ export const Footer: React.FC<{}> = () => {
       width="100vw"
       paddingX="5vw"
       paddingY="2vh"
-      backgroundColor="#D4D4D4" 
+      backgroundColor="#E4E4E4" 
       marginTop="3vh"
       display="flex"
       justifyContent="space-between"
