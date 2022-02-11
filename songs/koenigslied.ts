@@ -1,3 +1,4 @@
+export const Koenigslied = `
 Montagabend, die Woche fängt an
 Jeder zeigt, dass er noch turnen kann
 Später dann, um Viertel nach Zehn
@@ -36,3 +37,4 @@ Naturtrüb das Wetter und das Bier
 Ab 1 Promille radeln wir
 
 Ob 9,7 oder auch mal verbockt…
+`;

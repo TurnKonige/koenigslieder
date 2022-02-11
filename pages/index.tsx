@@ -23,9 +23,10 @@ export default function Home() {
             backgroundColor="#FFF"
             textAlign="center"
             fontSize="1.2rem"
+            as="a"
+            href={`/songs/${encodeURIComponent(song.title.toLowerCase())}`}
             width="100%"
-            as="button"
-            onClick={() => {}}
+            display='block'
           >
             {song.title}
           </ListItem>

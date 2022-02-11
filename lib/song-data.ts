@@ -1,55 +1,13 @@
+import { Koenigslied } from "../songs/koenigslied";
+
 export interface SongData {
   title: string;
-  src: string;
+  lyrics: string;
 }
 
 export const Songs: SongData[] = [
   {
     title: "Königslied",
-    src: "../songs/koenigslied.txt",
-  },
-  {
-    title: "Königslied",
-    src: "../songs/koenigslied.txt",
-  },
-  {
-    title: "Königslied",
-    src: "../songs/koenigslied.txt",
-  },
-  {
-    title: "Königslied",
-    src: "../songs/koenigslied.txt",
-  },
-  {
-    title: "Königslied",
-    src: "../songs/koenigslied.txt",
-  },
-  {
-    title: "Königslied",
-    src: "../songs/koenigslied.txt",
-  },
-  {
-    title: "Königslied",
-    src: "../songs/koenigslied.txt",
-  },
-  {
-    title: "Königslied",
-    src: "../songs/koenigslied.txt",
-  },
-  {
-    title: "Königslied",
-    src: "../songs/koenigslied.txt",
-  },
-  {
-    title: "Königslied",
-    src: "../songs/koenigslied.txt",
-  },
-  {
-    title: "Königslied",
-    src: "../songs/koenigslied.txt",
-  },
-  {
-    title: "Königslied",
-    src: "../songs/koenigslied.txt",
-  },
+    lyrics: Koenigslied,
+  }
 ];
