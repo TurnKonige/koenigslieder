@@ -5,7 +5,7 @@ export interface SongData {
   lyrics: string;
 }
 
-export const Songs: SongData[] = [
+export const FeaturedSongs: SongData[] = [
   {
     title: "Königslied",
     lyrics: Koenigslied,

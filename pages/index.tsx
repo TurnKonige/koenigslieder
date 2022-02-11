@@ -1,6 +1,6 @@
 import { List, ListItem, Box, Text } from "@chakra-ui/react";
 
-import { SongData, Songs } from "../lib/song-data";
+import { SongData, FeaturedSongs } from "../lib/song-data";
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
         Songs
       </Text>
       <List spacing={5}>
-        {Songs.map((song: SongData) => (
+        {FeaturedSongs.map((song: SongData) => (
           <ListItem
             boxShadow="md"
             p="6"
