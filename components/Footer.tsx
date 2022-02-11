@@ -1,6 +1,6 @@
 import { Box, Link, Text } from "@chakra-ui/react";
-import NextLink from "next/link";
 import { AiFillGithub } from "react-icons/ai";
+import NextLink from "next/link";
 
 export const Footer: React.FC<{}> = () => {
   return (

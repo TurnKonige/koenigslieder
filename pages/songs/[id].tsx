@@ -2,7 +2,7 @@ import { SongData, FeaturedSongs } from "../../lib/song-data";
 
 import { Song } from "../../components/Song";
 
-import { Text, Box, IconButton } from "@chakra-ui/react";
+import { Box, IconButton } from "@chakra-ui/react";
 import { GetServerSideProps } from "next";
 
 import { BiArrowBack } from "react-icons/bi";
