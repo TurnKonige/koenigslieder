@@ -5,9 +5,6 @@ import { SongData, Songs } from "../lib/song-data";
 export default function Home() {
   return (
     <Box
-      width="100vw"
-      minHeight="100vh"
-      backgroundColor="#E4E4E4"
       paddingX="5vw"
       paddingY="3vh"
     >
