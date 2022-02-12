@@ -10,3 +10,17 @@ A mobile first webpage for the KIT gymnastics sportsclub 🤸‍♀️
 - TypeScript
 - React
 - Next.js
+
+## Getting Started
+
+Run development server
+
+```shell
+yarn dev
+```
+
+Run production server
+
+```shell
+yarn start
+```
