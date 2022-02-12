@@ -1,30 +1,30 @@
-import { List, ListItem, Box } from "@chakra-ui/react";
-import { FaSpotify } from "react-icons/fa";
+import { List, ListItem, Box } from '@chakra-ui/react';
+import { FaSpotify } from 'react-icons/fa';
 
-import { FeaturedPlaylists, PlaylistData } from "../lib/music-data";
+import { FeaturedPlaylists, PlaylistData } from '../lib/music-data';
 
 export const PlaylistList: React.FC<{}> = () => {
   return (
     <List spacing={5}>
       {FeaturedPlaylists.map((playlist: PlaylistData) => (
         <ListItem
-          boxShadow="md"
-          p="6"
-          rounded="md"
-          backgroundColor="#FFF"
-          fontSize="1.2rem"
-          as="a"
+          boxShadow='md'
+          p='6'
+          rounded='md'
+          backgroundColor='#FFF'
+          fontSize='1.2rem'
+          as='a'
           href={playlist.link}
-          width="100%"
-          display="block"
+          width='100%'
+          display='block'
         >
           <Box
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
+            display='flex'
+            justifyContent='space-between'
+            alignItems='center'
           >
             {playlist.title}
-            <FaSpotify color="#444" />
+            <FaSpotify color='#444' />
           </Box>
         </ListItem>
       ))}
