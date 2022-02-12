@@ -12,7 +12,7 @@ BIER trinken Könige!
 Müller Milch, Müller Milch, Müller Milch die schmeckt
 Müller Milch, Müller Milch die weckt was in dir steckt
 
-Wir sind keine Hooligans!
+(Wir sind keine Hooligans!)
 Wir sind Karlsruher Turnerfans!
 
 Fürchtet euch nicht… Hallelujah…
