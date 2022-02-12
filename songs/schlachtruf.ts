@@ -1,5 +1,5 @@
 export const Schlachtruf = `
-(Wer sind die Könige?)
+(WER sind die Könige?)
 WIR sind die Könige!
 
 (WO sind die Könige?)
