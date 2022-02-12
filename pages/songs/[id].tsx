@@ -7,7 +7,7 @@ import { GetServerSideProps } from 'next';
 
 import { BiArrowBack } from 'react-icons/bi';
 import NextLink from 'next/link';
-import { NotFound } from '../../components/NotFound';
+import { Error } from '../../components/Error';
 
 export interface SongProps {
   song: SongData | null;
@@ -25,7 +25,7 @@ export default function Songs(props: SongProps) {
           variant='outline'
         />
       </NextLink>
-      {song ? <Song {...song} /> : <NotFound />}
+      {song ? <Song {...song} /> : <Error message='Nichts gefunden' />}
     </Box>
   );
 }

@@ -1,6 +1,10 @@
 import { Box, Text } from '@chakra-ui/react';
 
-export const NotFound: React.FC<{}> = () => {
+interface ErrorProps {
+  message: string;
+}
+
+export const Error: React.FC<ErrorProps> = (props) => {
   return (
     <Box>
       <Text
@@ -10,7 +14,7 @@ export const NotFound: React.FC<{}> = () => {
         color='red'
         marginTop='15vh'
       >
-        Nichts gefunden
+        {props.message}
       </Text>
       <Text
         as='h1'
