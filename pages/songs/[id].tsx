@@ -15,7 +15,7 @@ export interface SongProps {
 
 export default function Songs(props: SongProps) {
   const { song } = props;
-  
+
   return (
     <Box paddingX="5vw" paddingY="2vh">
       <NextLink href="/" passHref>

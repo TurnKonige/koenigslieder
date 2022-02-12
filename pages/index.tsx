@@ -5,11 +5,15 @@ import { SongData, FeaturedSongs } from "../lib/song-data";
 export default function Home() {
   return (
     <Box
+      display="flex"
+      flexDirection="column"
+      alignSelf="center"
       paddingX="5vw"
       paddingY="3vh"
+      width={["100vw", "50vw"]}
     >
       <Text textAlign="center" as="h1" fontSize="2rem" marginBottom="5vh">
-        Songs
+        Royale Lieder
       </Text>
       <List spacing={5}>
         {FeaturedSongs.map((song: SongData) => (
@@ -23,7 +27,7 @@ export default function Home() {
             as="a"
             href={`/songs/${encodeURIComponent(song.title.toLowerCase())}`}
             width="100%"
-            display='block'
+            display="block"
           >
             {song.title}
           </ListItem>
