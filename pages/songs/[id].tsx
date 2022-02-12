@@ -1,4 +1,4 @@
-import { SongData, FeaturedSongs } from "../../lib/song-data";
+import { SongData, FeaturedSongs } from "../../lib/music-data";
 
 import { Song } from "../../components/Song";
 
