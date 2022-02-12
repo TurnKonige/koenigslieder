@@ -29,7 +29,7 @@ export const FeaturedPlaylists: PlaylistData[] = [
     link: 'https://open.spotify.com/playlist/559Cx6BUvL4PkQWIhpGY6V?si=7567b18866dc4413',
   },
   {
-    title: 'So geht königliche Feierei 💃',
+    title: 'Königliche Feierei 💃',
     link: 'https://open.spotify.com/playlist/2ZDWzX3wgNpBnqKiiwxYXS?si=eecc52fb988e4273',
   },
 ];
