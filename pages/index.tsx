@@ -11,7 +11,7 @@ export default function Home() {
       alignSelf='center'
       paddingX='5vw'
       paddingY='3vh'
-      width={['100vw', '50vw']}
+      width={['100vw', '90vw', '70vw', '50vw']}
     >
       <Head>
         <title>Königslieder 🎵</title>
