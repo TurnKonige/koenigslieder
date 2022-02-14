@@ -1,6 +1,6 @@
-<svg width="442" height="453" viewBox="0 0 442 453" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M437 86V387H329H221H113H5V86L113 178L221 10L329 178L437 86Z" fill="#FFED49"/>
-<path d="M5 448V412H437V448H5Z" fill="#FFED49"/>
-<path d="M437 86V387H329H221H113H5V86L113 178L221 10L329 178L437 86Z" stroke="black" stroke-width="10"/>
-<path d="M5 448V412H437V448H5Z" stroke="black" stroke-width="10"/>
+<svg width="484" height="453" viewBox="0 0 484 453" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M478 86L458 387H350H242H134H26L6 86L134 178L242 10L350 178L478 86Z" fill="#FFED49"/>
+<path d="M26 448V412H458V448H26Z" fill="#FFED49"/>
+<path d="M478 86L458 387H350H242H134H26L6 86L134 178L242 10L350 178L478 86Z" stroke="black" stroke-width="10"/>
+<path d="M26 448V412H458V448H26Z" stroke="black" stroke-width="10"/>
 </svg>
