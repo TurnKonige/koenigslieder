@@ -24,7 +24,3 @@ Run production server
 ```shell
 yarn start
 ```
-
-## TODO
-
-- [ ] add tab icon
