@@ -6,17 +6,18 @@ interface SongProps {
 }
 
 export const Song: React.FC<SongProps> = (props) => {
-  const textAlign = useBreakpointValue({
-    base: 'left',
-    md: 'center',
-  });
-
   return (
     <>
       <Text as='h1' fontSize='1.5rem' paddingBottom='2vh' textAlign='center'>
         {props.title.toUpperCase()}
       </Text>
-      <Text whiteSpace='pre-line' textAlign={textAlign}>
+      <Text
+        whiteSpace='pre-line'
+        textAlign={{
+          base: 'left',
+          md: 'center',
+        }}
+      >
         {props.lyrics}
       </Text>
     </>
