@@ -10,7 +10,7 @@ export const Layout: React.FC<{}> = ({ children }) => {
 
         {/* Global site tag (gtag.js) - Google Analytics */}
         <Script
-          src='https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID'
+          src='https://www.googletagmanager.com/gtag/js?id=G-317H6WDX0R'
           strategy='afterInteractive'
         />
         <Script id='google-analytics' strategy='afterInteractive'>
@@ -19,7 +19,7 @@ export const Layout: React.FC<{}> = ({ children }) => {
           function gtag(){window.dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', 'GA_MEASUREMENT_ID');
+          gtag('config', 'G-317H6WDX0R');
         `}
         </Script>
       </Head>
