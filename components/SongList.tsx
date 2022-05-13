@@ -4,8 +4,9 @@ import { FeaturedSongs, SongData } from '../lib/music-data';
 export const SongList: React.FC<{}> = () => {
   return (
     <List spacing={5}>
-      {FeaturedSongs.map((song: SongData) => (
+      {FeaturedSongs.map((song, index) => (
         <ListItem
+          key={`${index}-${song.title}`}
           boxShadow='md'
           p='6'
           rounded='md'
