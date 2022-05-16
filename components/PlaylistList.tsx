@@ -1,13 +1,14 @@
 import { List, ListItem, Box } from '@chakra-ui/react';
 import { FaSpotify } from 'react-icons/fa';
 
-import { FeaturedPlaylists, PlaylistData } from '../lib/music-data';
+import { FeaturedPlaylists } from '../lib/music-data';
 
 export const PlaylistList: React.FC<{}> = () => {
   return (
     <List spacing={5}>
-      {FeaturedPlaylists.map((playlist: PlaylistData) => (
+      {FeaturedPlaylists.map((playlist, index) => (
         <ListItem
+          key={`${index}-${playlist.title}`}
           boxShadow='md'
           p='6'
           rounded='md'
