@@ -6,7 +6,6 @@ import { FeaturedPlaylists } from '../lib/music-data';
 
 export const PlaylistList: React.FC<{}> = () => {
   const fireGoogleAnalyticsEvent = (playlistName: string) => {
-    console.log('firing google event for', playlistName);
     event('click_playlist', {
       category: 'spotify_playlist',
       label: playlistName,
