@@ -1,9 +1,17 @@
 import { List, ListItem, Box } from '@chakra-ui/react';
 import { FaSpotify } from 'react-icons/fa';
+import { event } from 'nextjs-google-analytics';
 
 import { FeaturedPlaylists } from '../lib/music-data';
 
 export const PlaylistList: React.FC<{}> = () => {
+  const fireGoogleAnalyticsEvent = (playlistName: string) => {
+    event('click_playlist', {
+      category: 'spotify_playlist',
+      label: playlistName,
+    });
+  };
+
   return (
     <List spacing={5}>
       {FeaturedPlaylists.map((playlist, index) => (
@@ -18,6 +26,7 @@ export const PlaylistList: React.FC<{}> = () => {
           href={playlist.link}
           width='100%'
           display='block'
+          onClick={() => fireGoogleAnalyticsEvent(playlist.title)}
         >
           <Box
             display='flex'
