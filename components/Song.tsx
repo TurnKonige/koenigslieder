@@ -1,15 +1,17 @@
-import { Text, useBreakpointValue, ResponsiveValue } from '@chakra-ui/react';
+import { Box, BoxProps, Text } from '@chakra-ui/react';
 
-interface SongProps {
+interface SongProps extends BoxProps {
   title: string;
   lyrics: string;
 }
 
 export const Song: React.FC<SongProps> = (props) => {
+  const { title, lyrics, ...rest } = props;
+
   return (
-    <>
+    <Box {...rest}>
       <Text as='h1' fontSize='1.5rem' paddingBottom='2vh' textAlign='center'>
-        {props.title.toUpperCase()}
+        {title.toUpperCase()}
       </Text>
       <Text
         whiteSpace='pre-line'
@@ -18,8 +20,8 @@ export const Song: React.FC<SongProps> = (props) => {
           md: 'center',
         }}
       >
-        {props.lyrics}
+        {lyrics}
       </Text>
-    </>
+    </Box>
   );
 };

@@ -1,34 +1,31 @@
-import NextLink from 'next/link';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { GetServerSideProps } from 'next';
-import { Box, IconButton } from '@chakra-ui/react';
-import { BiArrowBack } from 'react-icons/bi';
+import { Box } from '@chakra-ui/react';
 
 import { SongData, FeaturedSongs } from '../../lib/music-data';
 import { Song } from '../../components/Song';
 import { Error } from '../../components/Error';
+import { BackButton } from '../../components/BackButton';
 
 export interface SongProps {
   song: SongData | null;
 }
 
-export default function Songs(props: SongProps) {
-  const { song } = props;
-
+export default function Songs({ song }: SongProps) {
   return (
-    <Box paddingX='5vw' paddingY='2vh'>
+    <Box paddingX='5vw' paddingTop='2vh'>
       <Head>
         <title>{song.title}</title>
         <meta name='description' content={`Lyrics für ${song.title}`} />
       </Head>
-      <NextLink href='/' passHref>
-        <IconButton
-          icon={<BiArrowBack />}
-          aria-label='navigate back'
-          variant='outline'
-        />
-      </NextLink>
-      {song ? <Song {...song} /> : <Error message='Nichts gefunden' />}
+      <BackButton />
+      {song ? (
+        <Song {...song} marginBottom='2rem' />
+      ) : (
+        <Error message='Nichts gefunden 🤷' />
+      )}
+      <BackButton />
     </Box>
   );
 }
