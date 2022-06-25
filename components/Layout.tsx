@@ -1,5 +1,6 @@
 import { Box } from '@chakra-ui/react';
 import Head from 'next/head';
+import { Navbar } from './Navbar';
 
 export const Layout: React.FC<{}> = ({ children }) => {
   return (
@@ -7,6 +8,7 @@ export const Layout: React.FC<{}> = ({ children }) => {
       <Head>
         <link rel='icon' href='/crown.svg' />
       </Head>
+      <Navbar />
       {children}
     </Box>
   );

@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 import { GetServerSideProps } from 'next';
 import { Box } from '@chakra-ui/react';
 
@@ -14,20 +13,17 @@ export interface SongProps {
 
 export default function Songs({ song }: SongProps) {
   return (
-    <Box paddingX='5vw' paddingTop='2vh'>
+    <Box display='flex' flexDirection='column' paddingX='5vw' paddingTop='1rem'>
       <Head>
         <title>{song.title}</title>
         <meta name='description' content={`Lyrics für ${song.title}`} />
       </Head>
-      <BackButton variant='icon' />
-      <Box display='flex' flexDirection='column'>
-        {song ? (
-          <Song {...song} marginBottom='2rem' />
-        ) : (
-          <Error message='Nichts gefunden 🤷' />
-        )}
-        <BackButton variant='button' marginTop='2rem' />
-      </Box>
+      {song ? (
+        <Song {...song} marginBottom='2rem' />
+      ) : (
+        <Error message='Nichts gefunden 🤷' />
+      )}
+      <BackButton variant='solid' marginTop='2rem' />
     </Box>
   );
 }

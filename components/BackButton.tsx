@@ -1,15 +1,15 @@
-import { Button, ButtonProps, IconButton } from '@chakra-ui/react';
+import { Button, ButtonProps } from '@chakra-ui/react';
 import { BiArrowBack } from 'react-icons/bi';
 import { useRouter } from 'next/router';
 
 interface BackButtonProps extends ButtonProps {
-  variant?: 'icon' | 'button';
+  variant?: 'outline' | 'solid';
 }
 
 export const BackButton: React.FC<BackButtonProps> = ({ variant, ...rest }) => {
   const router = useRouter();
 
-  const StyledButton = () => (
+  const SolidButton = () => (
     <Button
       aria-label='navigate back'
       variant='solid'
@@ -23,15 +23,19 @@ export const BackButton: React.FC<BackButtonProps> = ({ variant, ...rest }) => {
     </Button>
   );
 
-  const StyledIconButton = () => (
-    <IconButton
-      icon={<BiArrowBack />}
+  const OutlinedButton = () => (
+    <Button
       aria-label='navigate back'
       variant='outline'
+      marginBottom='1rem'
+      leftIcon={<BiArrowBack />}
       onClick={() => router.back()}
+      margin='0'
       {...rest}
-    />
+    >
+      Zurück
+    </Button>
   );
 
-  return variant === 'icon' ? <StyledIconButton /> : <StyledButton />;
+  return variant === 'outline' ? <OutlinedButton /> : <SolidButton />;
 };
