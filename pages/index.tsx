@@ -16,7 +16,7 @@ export default function Home() {
       flexDirection='column'
       alignSelf='center'
       paddingX='1.5rem'
-      paddingTop='1.5rem'
+      paddingY='1.5rem'
       width={['100vw', '90vw', '70vw', '50vw']}
     >
       <MetaTags title={title} description={description} />
