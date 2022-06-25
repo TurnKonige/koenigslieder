@@ -19,13 +19,15 @@ export default function Songs({ song }: SongProps) {
         <title>{song.title}</title>
         <meta name='description' content={`Lyrics für ${song.title}`} />
       </Head>
-      <BackButton />
-      {song ? (
-        <Song {...song} marginBottom='2rem' />
-      ) : (
-        <Error message='Nichts gefunden 🤷' />
-      )}
-      <BackButton />
+      <BackButton variant='icon' />
+      <Box display='flex' flexDirection='column'>
+        {song ? (
+          <Song {...song} marginBottom='2rem' />
+        ) : (
+          <Error message='Nichts gefunden 🤷' />
+        )}
+        <BackButton variant='button' marginTop='2rem' />
+      </Box>
     </Box>
   );
 }
