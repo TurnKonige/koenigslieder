@@ -5,21 +5,22 @@ import { Box } from '@chakra-ui/react';
 import { SongData, FeaturedSongs } from '../../lib/music-data';
 import { Song } from '../../components/Song';
 import { BackButton } from '../../components/BackButton';
+import { MetaTags } from '../../components/MetaTags';
 
 export interface SongProps {
   song: SongData;
 }
 
 export default function Songs({ song }: SongProps) {
+  const metaTagTitle = `${song.title} | Königslieder`;
+  const description = `Lyrics für ${song.title}!\n ${song.lyrics.slice(
+    0,
+    40
+  )}…`;
+
   return (
     <Box display='flex' flexDirection='column' paddingX='5vw' paddingTop='1rem'>
-      <Head>
-        <title>{song.title}</title>
-        <meta
-          name='description'
-          content={`Lyrics für ${song.title}!\n ${song.lyrics.slice(0, 40)}`}
-        />
-      </Head>
+      <MetaTags title={metaTagTitle} description={description} />
       <Song {...song} marginBottom='2rem' />
       <BackButton variant='solid' marginTop='2rem' />
     </Box>
