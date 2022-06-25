@@ -15,7 +15,10 @@ export default function Songs({ song }: SongProps) {
     <Box display='flex' flexDirection='column' paddingX='5vw' paddingTop='1rem'>
       <Head>
         <title>{song.title}</title>
-        <meta name='description' content={`Lyrics für ${song.title}`} />
+        <meta
+          name='description'
+          content={`Lyrics für ${song.title}!\n ${song.lyrics.slice(0, 40)}`}
+        />
       </Head>
       <Song {...song} marginBottom='2rem' />
       <BackButton variant='solid' marginTop='2rem' />
