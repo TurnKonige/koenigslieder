@@ -15,7 +15,7 @@ export default function Songs({ song }: SongProps) {
   const metaTagTitle = `${song.title} | Königslieder`;
   const description = `Lyrics für ${song.title}!\n ${song.lyrics.slice(
     0,
-    40
+    200
   )}…`;
 
   return (
