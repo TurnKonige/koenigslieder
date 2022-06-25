@@ -37,7 +37,7 @@ export const Menu: React.FC<{}> = () => {
             )
           }
         >
-          Hochschulsport Website
+          Hochschulsport
         </MenuItem>
         <MenuItem
           icon={<AiFillInstagram />}
