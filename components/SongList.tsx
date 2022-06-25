@@ -1,7 +1,16 @@
 import { List, ListItem } from '@chakra-ui/react';
-import { FeaturedSongs, SongData } from '../lib/music-data';
+import { FeaturedSongs } from '../lib/music-data';
+
+import { event } from 'nextjs-google-analytics';
 
 export const SongList: React.FC<{}> = () => {
+  const fireGoogleAnalyticsEvent = (songName: string) => {
+    event('click_song', {
+      category: 'song_list',
+      label: songName,
+    });
+  };
+
   return (
     <List spacing={5}>
       {FeaturedSongs.map((song, index) => (
@@ -17,6 +26,7 @@ export const SongList: React.FC<{}> = () => {
           href={`/songs/${encodeURIComponent(song.title.toLowerCase())}`}
           width='100%'
           display='block'
+          onClick={() => fireGoogleAnalyticsEvent(song.title)}
         >
           {song.title}
         </ListItem>
