@@ -1,5 +1,6 @@
 import { Box, Text, Divider } from '@chakra-ui/react';
 import Head from 'next/head';
+
 import { PlaylistList } from '../components/PlaylistList';
 import { SongList } from '../components/SongList';
 
@@ -10,7 +11,6 @@ export default function Home() {
       flexDirection='column'
       alignSelf='center'
       paddingX='5vw'
-      paddingY='3vh'
       width={['100vw', '90vw', '70vw', '50vw']}
     >
       <Head>
