@@ -10,7 +10,8 @@ export default function Home() {
       display='flex'
       flexDirection='column'
       alignSelf='center'
-      paddingX='5vw'
+      paddingX='1.5rem'
+      paddingTop='1.5rem'
       width={['100vw', '90vw', '70vw', '50vw']}
     >
       <Head>

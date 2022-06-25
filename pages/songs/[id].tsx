@@ -4,7 +4,6 @@ import { Box } from '@chakra-ui/react';
 
 import { SongData, FeaturedSongs } from '../../lib/music-data';
 import { Song } from '../../components/Song';
-import { Error } from '../../components/Error';
 import { BackButton } from '../../components/BackButton';
 
 export interface SongProps {
