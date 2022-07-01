@@ -1,5 +1,4 @@
 import { Box, Text, Divider } from '@chakra-ui/react';
-import Head from 'next/head';
 import { MetaTags } from '../components/MetaTags';
 
 import { PlaylistList } from '../components/PlaylistList';
