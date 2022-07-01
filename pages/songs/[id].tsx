@@ -1,5 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { Box } from '@chakra-ui/react';
+import { Box, Flex, Text } from '@chakra-ui/react';
 
 import { SongData, FeaturedSongs } from '../../lib/music-data';
 import { Song } from '../../components/Song';
@@ -21,6 +21,15 @@ export default function Songs({ song }: SongProps) {
     <Box display='flex' flexDirection='column' paddingX='5vw' paddingTop='1rem'>
       <MetaTags title={metaTagTitle} description={description} />
       <Song {...song} marginBottom='2rem' />
+      {song.audioFilePath && (
+        <Flex alignItems='center' flexDirection='column' marginY='3rem'>
+          <Text>Pianoversion by Felix 🎹🎵</Text>
+          <audio controls src={song.audioFilePath}>
+            Dein Browser unterstützt nicht die Wiedergabe von Audiodateien.
+            Bitte öffne die Seite in einem anderen Browser.
+          </audio>
+        </Flex>
+      )}
       <BackButton variant='solid' marginTop='2rem' />
     </Box>
   );
