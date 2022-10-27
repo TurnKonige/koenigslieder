@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { Box, Flex, Text } from '@chakra-ui/react';
 
 import { SongData, FeaturedSongs } from '../../lib/music-data';
@@ -10,7 +10,7 @@ export interface SongProps {
   song: SongData;
 }
 
-export default function Songs({ song }: SongProps) {
+const Songs: NextPage<SongProps> = ({ song }) => {
   const metaTagTitle = `${song.title} | Königslieder`;
   const description = `Lyrics für ${song.title}!\n ${song.lyrics.slice(
     0,
@@ -33,7 +33,9 @@ export default function Songs({ song }: SongProps) {
       <BackButton variant='solid' marginTop='2rem' />
     </Box>
   );
-}
+};
+
+export default Songs;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = FeaturedSongs.map((song) => {
