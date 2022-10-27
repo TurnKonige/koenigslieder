@@ -13,10 +13,10 @@
     "**/*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
-    "@chakra-ui/react": "^1.8.3",
-    "@emotion/react": "^11",
-    "@emotion/styled": "^11",
-    "framer-motion": "^6",
+    "@chakra-ui/react": "^2.3.6",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "framer-motion": "^7.6.2",
     "next": "12.0.10",
     "nextjs-google-analytics": "^1.2.0",
     "react": "17.0.2",
