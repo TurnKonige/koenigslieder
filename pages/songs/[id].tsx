@@ -1,8 +1,8 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import { Box, Flex, Text } from '@chakra-ui/react';
+import { Box, Container, Flex, Text } from '@chakra-ui/react';
 
-import { SongData, FeaturedSongs } from '../../lib/music-data';
-import { Song } from '../../components/Song';
+import { FeaturedSongs } from '../../lib/music-data';
+import { SongText } from '../../components/SongText';
 import { BackButton } from '../../components/BackButton';
 import { MetaTags } from '../../components/MetaTags';
 import { contentfulClient } from '../../lib/contentful';
@@ -17,10 +17,10 @@ const Songs: NextPage<SongProps> = ({ song }) => {
   const description = `Lyrics für ${song.title}!`; // \n ${song.lyrics.slice(0, 200)}…`
 
   return (
-    <Box display='flex' flexDirection='column' paddingX='5vw' paddingTop='1rem'>
+    <Container pt='2rem'>
       <MetaTags title={metaTagTitle} description={description} />
-      <Song {...song} />
-    </Box>
+      <SongText {...song} />
+    </Container>
   );
 };
 

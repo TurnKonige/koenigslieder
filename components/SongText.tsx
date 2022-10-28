@@ -2,7 +2,7 @@ import { Box, Heading, Text } from '@chakra-ui/react';
 import { useRichText } from '../hooks/useRIchText';
 import { SongItem } from '../lib/queries/songs';
 
-export const Song: React.FC<SongItem> = ({ title, lyrics }) => {
+export const SongText: React.FC<SongItem> = ({ title, lyrics }) => {
   const renderer = useRichText(lyrics.links);
 
   return (
