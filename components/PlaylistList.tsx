@@ -2,10 +2,13 @@ import { List, ListItem, Flex } from '@chakra-ui/react';
 import { FaSpotify } from 'react-icons/fa';
 import { event } from 'nextjs-google-analytics';
 
-import { Playlist } from '../lib/queries/playlists';
-
 export interface PlaylistListProps {
   playlists: Playlist[];
+}
+
+export interface Playlist {
+  title: string;
+  link: string;
 }
 
 export const PlaylistList: React.FC<PlaylistListProps> = ({ playlists }) => {

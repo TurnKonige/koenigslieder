@@ -1,11 +1,11 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { Container } from '@chakra-ui/react';
 
-import { SongText } from '../../components/SongText';
+import { SongTextProps, SongText } from '../../components/SongText';
 import { BackButton } from '../../components/BackButton';
 import { MetaTags } from '../../components/MetaTags';
 import { contentfulClient } from '../../lib/contentful';
-import { SongItem, getSongQuery, SongResponse } from '../../lib/queries/songs';
+import { getSongQuery, SongResponse } from '../../lib/queries/songs';
 import {
   getSongTitlesQuery,
   SongTitleResponse,
@@ -13,7 +13,7 @@ import {
 import { encodeUrl } from '../../lib/url';
 
 export interface SongProps {
-  song: SongItem;
+  song: SongTextProps;
 }
 
 const Songs: NextPage<SongProps> = ({ song }) => {
@@ -21,10 +21,10 @@ const Songs: NextPage<SongProps> = ({ song }) => {
   const description = `Lyrics für ${song.title}!`; // \n ${song.lyrics.slice(0, 200)}…`
 
   return (
-    <Container pt='2rem'>
+    <Container pt='4'>
       <MetaTags title={metaTagTitle} description={description} />
       <SongText {...song} />
-      <BackButton w='100%' mt='2rem' />
+      <BackButton w='100%' my='8' />
     </Container>
   );
 };

@@ -1,3 +1,5 @@
+import { Playlist } from '../../components/PlaylistList';
+
 export const getPlaylistsQuery = `
   query getPlaylists {
     playlistCollection(limit: 10) {
@@ -13,9 +15,4 @@ export interface PlaylistsResponse {
   playlistCollection: {
     items: Playlist[];
   };
-}
-
-export interface Playlist {
-  title: string;
-  link: string;
 }

@@ -1,4 +1,4 @@
-import { Document } from '@contentful/rich-text-types';
+import { SongTextProps } from '../../components/SongText';
 
 export const getSongQuery = `
   query getSongs($title: String!) {
@@ -29,29 +29,6 @@ export const getSongQuery = `
 
 export interface SongResponse {
   songCollection: {
-    items: SongItem[];
-  };
-}
-
-export interface SongItem {
-  title: string;
-  lyrics: {
-    json: Document;
-    links: RichTextLinks;
-  };
-}
-
-export interface RichTextLinks {
-  entries: {
-    block: Refrain[];
-  };
-}
-
-interface Refrain {
-  typename: 'Refrain';
-  preview: string;
-  complete: string;
-  sys: {
-    id: string;
+    items: SongTextProps[];
   };
 }
