@@ -6,35 +6,27 @@ import { Song } from '../../components/Song';
 import { BackButton } from '../../components/BackButton';
 import { MetaTags } from '../../components/MetaTags';
 import { contentfulClient } from '../../lib/contentful';
-import { songQuery, SongResponse } from '../../lib/queries/songs';
-import { useEffect, useState } from 'react';
-import { useRichText } from '../../hooks/useRIchText';
+import { SongItem, songQuery, SongResponse } from '../../lib/queries/songs';
 
 export interface SongProps {
-  song: SongResponse;
+  song: SongItem;
 }
 
 const Songs: NextPage<SongProps> = ({ song }) => {
-  // const metaTagTitle = `${song.title} | Königslieder`;
-  // const description = `Lyrics für ${song.title}!\n ${song.lyrics.slice(
-  //   0,
-  //   200
-  // )}…`;
-
-  const koenigslied = song.songCollection.items[0];
-  const renderer = useRichText(koenigslied.lyrics.links);
+  const metaTagTitle = `${song.title} | Königslieder`;
+  const description = `Lyrics für ${song.title}!`; // \n ${song.lyrics.slice(0, 200)}…`
 
   return (
     <Box display='flex' flexDirection='column' paddingX='5vw' paddingTop='1rem'>
-      {/* <MetaTags title={metaTagTitle} description={description} /> */}
-      {renderer.render(koenigslied.lyrics.json)}
+      <MetaTags title={metaTagTitle} description={description} />
+      <Song {...song} />
     </Box>
   );
 };
 
 export default Songs;
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async (context) => {
   const paths = FeaturedSongs.map((song) => {
     return {
       params: { id: song.title.toLowerCase() },
@@ -48,16 +40,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const { id } = context.params;
-  // const song = FeaturedSongs.find(
-  //   (s) => s.title.toLowerCase() === (id as string).toLowerCase()
-  // );
-
-  const song = await contentfulClient.request<SongResponse>(songQuery);
+  console.log(context.params.id);
+  const song = await contentfulClient.request<SongResponse>(songQuery, {
+    title: context.params.id,
+  });
 
   return {
     props: {
-      song,
+      song: song.songCollection.items[0],
     },
   };
 };

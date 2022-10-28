@@ -1,8 +1,8 @@
 import { Document } from '@contentful/rich-text-types';
 
 export const songQuery = `
-  query getSongs {
-    songCollection(limit: 10) {
+  query getSongs($title: String!) {
+    songCollection(limit: 10, where: { title_contains: $title }) {
       items {
         title
         lyrics {
@@ -33,7 +33,7 @@ export interface SongResponse {
   };
 }
 
-interface SongItem {
+export interface SongItem {
   title: string;
   lyrics: {
     json: Document;
