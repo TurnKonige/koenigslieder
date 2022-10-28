@@ -1,12 +1,16 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import { Box, Container, Flex, Text } from '@chakra-ui/react';
+import { Container } from '@chakra-ui/react';
 
-import { FeaturedSongs } from '../../lib/music-data';
 import { SongText } from '../../components/SongText';
 import { BackButton } from '../../components/BackButton';
 import { MetaTags } from '../../components/MetaTags';
 import { contentfulClient } from '../../lib/contentful';
-import { SongItem, songQuery, SongResponse } from '../../lib/queries/songs';
+import { SongItem, getSongQuery, SongResponse } from '../../lib/queries/songs';
+import {
+  getSongTitlesQuery,
+  SongTitleResponse,
+} from '../../lib/queries/songTitles';
+import { encodeUrl } from '../../lib/url';
 
 export interface SongProps {
   song: SongItem;
@@ -20,18 +24,25 @@ const Songs: NextPage<SongProps> = ({ song }) => {
     <Container pt='2rem'>
       <MetaTags title={metaTagTitle} description={description} />
       <SongText {...song} />
+      <BackButton w='100%' mt='2rem' />
     </Container>
   );
 };
 
 export default Songs;
 
-export const getStaticPaths: GetStaticPaths = async (context) => {
-  const paths = FeaturedSongs.map((song) => {
-    return {
-      params: { id: song.title.toLowerCase() },
-    };
-  });
+export const getStaticPaths: GetStaticPaths = async () => {
+  const response = await contentfulClient.request<SongTitleResponse>(
+    getSongTitlesQuery
+  );
+
+  const paths = response.songCollection.items.map(({ title }) => ({
+    params: {
+      id: encodeUrl(title),
+    },
+  }));
+
+  console.log('Paths', paths);
 
   return {
     paths,
@@ -39,9 +50,8 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  console.log(context.params.id);
-  const song = await contentfulClient.request<SongResponse>(songQuery, {
+export const getStaticProps: GetStaticProps<SongProps> = async (context) => {
+  const song = await contentfulClient.request<SongResponse>(getSongQuery, {
     title: context.params.id,
   });
 

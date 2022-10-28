@@ -1,9 +1,14 @@
 import { List, ListItem } from '@chakra-ui/react';
-import { FeaturedSongs } from '../lib/music-data';
-
 import { event } from 'nextjs-google-analytics';
 
-export const SongList: React.FC<{}> = () => {
+import { SongTitle } from '../lib/queries/songTitles';
+import { encodeUrl } from '../lib/url';
+
+export interface SongListProps {
+  songs: SongTitle[];
+}
+
+export const SongList: React.FC<SongListProps> = ({ songs }) => {
   const fireGoogleAnalyticsEvent = (songName: string) => {
     event('click_song', {
       category: 'song_list',
@@ -13,9 +18,9 @@ export const SongList: React.FC<{}> = () => {
 
   return (
     <List spacing={5}>
-      {FeaturedSongs.map((song, index) => (
+      {songs.map(({ title }, index) => (
         <ListItem
-          key={`${index}-${song.title}`}
+          key={`${index}-${title}`}
           boxShadow='md'
           p='6'
           rounded='md'
@@ -23,12 +28,12 @@ export const SongList: React.FC<{}> = () => {
           textAlign='center'
           fontSize='1.2rem'
           as='a'
-          href={`/songs/${encodeURIComponent(song.title.toLowerCase())}`}
+          href={`/songs/${encodeUrl(title)}`}
           width='100%'
           display='block'
-          onClick={() => fireGoogleAnalyticsEvent(song.title)}
+          onClick={() => fireGoogleAnalyticsEvent(title)}
         >
-          {song.title}
+          {title}
         </ListItem>
       ))}
     </List>

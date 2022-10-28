@@ -1,24 +1,6 @@
 import { Koenigslied } from '../songs/koenigslied';
 import { Schlachtruf } from '../songs/schlachtruf';
 
-export interface SongData {
-  title: string;
-  lyrics: string;
-  audioFilePath?: string;
-}
-
-export const FeaturedSongs: SongData[] = [
-  {
-    title: 'Königslied 👑',
-    lyrics: Koenigslied,
-    audioFilePath: '/koenigslied.mp3',
-  },
-  {
-    title: 'Schlachtruf 🪖',
-    lyrics: Schlachtruf,
-  },
-];
-
 export interface PlaylistData {
   title: string;
   link: string;
