@@ -1,6 +1,3 @@
-import { Koenigslied } from '../songs/koenigslied';
-import { Schlachtruf } from '../songs/schlachtruf';
-
 export interface PlaylistData {
   title: string;
   link: string;
