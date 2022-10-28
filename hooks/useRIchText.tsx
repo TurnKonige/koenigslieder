@@ -1,22 +1,14 @@
-import {
-  Box,
-  Collapse,
-  Flex,
-  Text,
-  useDisclosure,
-  useToken,
-} from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
 import {
   documentToReactComponents,
   Options,
 } from '@contentful/rich-text-react-renderer';
-import { BsChevronDown } from 'react-icons/bs';
 import { Document, MARKS, BLOCKS, INLINES } from '@contentful/rich-text-types';
 import Link from 'next/link';
 import { ReactNode } from 'react';
 import { fromPairs } from 'lodash';
-import { RichTextLinks } from '../lib/queries/songs';
 import { Refrain } from '../components/Refrain';
+import { RichTextLinks } from '../components/SongText';
 
 export const useRichText = (links: RichTextLinks) => {
   const entryMap = fromPairs(
