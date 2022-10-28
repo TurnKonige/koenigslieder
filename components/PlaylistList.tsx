@@ -1,4 +1,4 @@
-import { List, ListItem, Box, Flex } from '@chakra-ui/react';
+import { List, ListItem, Flex } from '@chakra-ui/react';
 import { FaSpotify } from 'react-icons/fa';
 import { event } from 'nextjs-google-analytics';
 
@@ -17,19 +17,12 @@ export const PlaylistList: React.FC<PlaylistListProps> = ({ playlists }) => {
   };
 
   return (
-    <List spacing={5}>
+    <List spacing={5} variant='cards'>
       {playlists.map(({ title, link }, index) => (
         <ListItem
           key={`${index}-${title}`}
-          boxShadow='md'
-          p='6'
-          rounded='md'
-          backgroundColor='#FFF'
-          fontSize='1.2rem'
           as='a'
           href={link}
-          width='100%'
-          display='block'
           onClick={() => fireGoogleAnalyticsEvent(title)}
         >
           <Flex justify='space-between' align='center'>

@@ -17,20 +17,13 @@ export const SongList: React.FC<SongListProps> = ({ songs }) => {
   };
 
   return (
-    <List spacing={5}>
+    <List spacing={5} variant='cards'>
       {songs.map(({ title }, index) => (
         <ListItem
           key={`${index}-${title}`}
-          boxShadow='md'
-          p='6'
-          rounded='md'
-          backgroundColor='#FFF'
           textAlign='center'
-          fontSize='1.2rem'
           as='a'
           href={`/songs/${encodeUrl(title)}`}
-          width='100%'
-          display='block'
           onClick={() => fireGoogleAnalyticsEvent(title)}
         >
           {title}
