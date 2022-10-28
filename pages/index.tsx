@@ -1,4 +1,4 @@
-import { Text, Divider, Container } from '@chakra-ui/react';
+import { Text, Divider, Box } from '@chakra-ui/react';
 import { GetStaticProps, NextPage } from 'next';
 import { MetaTags } from '../components/MetaTags';
 
@@ -23,7 +23,7 @@ const Home: NextPage<HomeProps> = ({ songs, playlists }) => {
     'Lieder, Playlists, und Allerlei des Unisports Gerätturnen am KIT; auch bekannt als Karlsruher Könige! 🥳🎺👑';
 
   return (
-    <Container pt='4'>
+    <Box>
       <MetaTags title={title} description={description} />
 
       <Text textAlign='center' as='h1' fontSize='2rem' marginBottom='8'>
@@ -37,7 +37,7 @@ const Home: NextPage<HomeProps> = ({ songs, playlists }) => {
         Playlists
       </Text>
       <PlaylistList playlists={playlists} />
-    </Container>
+    </Box>
   );
 };
 

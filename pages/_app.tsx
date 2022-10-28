@@ -12,15 +12,7 @@ export default function App({ Component, pageProps }) {
     <ChakraProvider theme={theme}>
       <GoogleAnalytics />
       <Layout>
-        <Box
-          display='flex'
-          flexDirection='column'
-          justifyContent='space-between'
-          minHeight='100vh'
-        >
-          <Component {...pageProps} />
-          <Footer />
-        </Box>
+        <Component {...pageProps} />
       </Layout>
     </ChakraProvider>
   );

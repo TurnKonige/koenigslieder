@@ -1,5 +1,5 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import { Container } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 
 import { SongTextProps, SongText } from '../../components/SongText';
 import { BackButton } from '../../components/BackButton';
@@ -21,11 +21,11 @@ const Songs: NextPage<SongProps> = ({ song }) => {
   const description = `Lyrics für ${song.title}!`; // \n ${song.lyrics.slice(0, 200)}…`
 
   return (
-    <Container pt='4'>
+    <Box>
       <MetaTags title={metaTagTitle} description={description} />
       <SongText {...song} />
-      <BackButton w='100%' my='8' />
-    </Container>
+      <BackButton w='100%' mt='8' />
+    </Box>
   );
 };
 
