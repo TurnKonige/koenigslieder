@@ -13,7 +13,8 @@ export const BackButton: React.FC<BackButtonProps> = ({ variant, ...rest }) => {
     <Button
       aria-label='navigate back'
       variant='solid'
-      colorScheme='teal'
+      color='white'
+      bgColor='black'
       leftIcon={<BiArrowBack />}
       onClick={() => router.back()}
       {...rest}

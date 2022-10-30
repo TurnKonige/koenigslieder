@@ -1,6 +1,6 @@
 import { Box, Text } from '@chakra-ui/react';
 import { Document } from '@contentful/rich-text-types';
-import { useRichText } from '../hooks/useRIchText';
+import { useRichText } from '../hooks/useRichText';
 
 export interface SongTextProps {
   title: string;

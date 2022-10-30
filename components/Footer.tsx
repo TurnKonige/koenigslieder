@@ -9,7 +9,6 @@ export const Footer: React.FC<{}> = () => {
       paddingX='5vw'
       paddingY='2vh'
       backgroundColor='#E4E4E4'
-      marginTop='3vh'
       display='flex'
       justifyContent='space-between'
       alignItems='center'
