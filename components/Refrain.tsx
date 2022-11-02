@@ -17,18 +17,24 @@ export const Refrain: React.FC<RefrainProps> = ({ text }) => {
   const { isOpen, onToggle } = useDisclosure();
   const [gray200] = useToken('colors', ['gray.200']);
 
-  const [firstLine, ...rest] = text.split('\n');
+  const [firstLine, ...lyricsRest] = text.split('\n');
 
   return (
-    <Box my='1.5rem'>
+    <Box my={6}>
       <TopBorderWithLabel label='refrain' bgColor={gray200} />
       <Flex
         py='0.5rem'
         whiteSpace='pre-line'
         onClick={onToggle}
+        cursor='pointer'
         borderBottom={`1px solid ${gray200}`}
+        w='100%'
       >
-        <Collapse startingHeight='1.5em' in={isOpen}>
+        <Collapse
+          startingHeight='1.5em'
+          in={isOpen}
+          style={{ width: 'inherit' }}
+        >
           <Flex justify='space-between' align='center'>
             {firstLine}
             <Box
@@ -40,7 +46,7 @@ export const Refrain: React.FC<RefrainProps> = ({ text }) => {
               <BsChevronDown />
             </Box>
           </Flex>
-          {rest.join('\n')}
+          {lyricsRest.join('\n')}
         </Collapse>
       </Flex>
     </Box>
@@ -62,11 +68,11 @@ const TopBorderWithLabel: React.FC<TopBorderWithLabelProps> = ({
         fontSize='0.6rem'
         lineHeight='1px'
         color='gray.400'
-        mr='0.5rem'
+        mr={2}
       >
         {label}
       </Text>
-      <Box w='100%' bgColor={bgColor} />
+      <Box bgColor={bgColor} flexGrow={1} />
     </Flex>
   );
 };
