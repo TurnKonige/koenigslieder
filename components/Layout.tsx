@@ -5,7 +5,7 @@ import { Navbar } from './Navbar';
 
 export const Layout: React.FC<{}> = ({ children }) => {
   return (
-    <Flex width='100vw' minH='100vh' flexDir='column' bgColor='#F4F4F4'>
+    <Flex width='100vw' minH='100vh' flexDir='column' bgColor='background'>
       <Head>
         <link rel='icon' href='/crown.svg' />
       </Head>

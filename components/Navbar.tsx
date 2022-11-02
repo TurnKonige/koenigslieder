@@ -1,4 +1,4 @@
-import { Box, Icon } from '@chakra-ui/react';
+import { Box, Container, Icon } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import { RiVipCrownFill as CrownIcon } from 'react-icons/ri';
 
@@ -12,22 +12,24 @@ export const Navbar: React.FC<{}> = () => {
   return (
     <Box
       width='100vw'
-      paddingX='1rem'
-      paddingY='0.5rem'
-      display='flex'
-      justifyContent='space-between'
-      alignItems='center'
+      paddingY={1}
       boxShadow='md'
       position='sticky'
       top='0'
-      backgroundColor='#F4F4F4'
+      bgColor='background'
     >
-      {isBasePath ? (
-        <Icon as={CrownIcon} boxSize={8} />
-      ) : (
-        <BackButton variant='outline' />
-      )}
-      <Menu />
+      <Container
+        display='flex'
+        justifyContent='space-between'
+        alignItems='center'
+      >
+        {isBasePath ? (
+          <Icon as={CrownIcon} boxSize={8} />
+        ) : (
+          <BackButton variant='outline' />
+        )}
+        <Menu />
+      </Container>
     </Box>
   );
 };
