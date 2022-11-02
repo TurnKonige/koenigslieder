@@ -47,11 +47,11 @@ export const Refrain: React.FC<RefrainProps> = ({ text }) => {
   );
 };
 
-interface TopBorderWithLabel extends Pick<BoxProps, 'bgColor'> {
+interface TopBorderWithLabelProps extends Pick<BoxProps, 'bgColor'> {
   label: string;
 }
 
-const TopBorderWithLabel: React.FC<TopBorderWithLabel> = ({
+const TopBorderWithLabel: React.FC<TopBorderWithLabelProps> = ({
   label,
   bgColor,
 }) => {
