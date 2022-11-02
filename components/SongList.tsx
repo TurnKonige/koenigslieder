@@ -21,7 +21,6 @@ export const SongList: React.FC<SongListProps> = ({ songs }) => {
       {songs.map(({ title }, index) => (
         <ListItem
           key={`${index}-${title}`}
-          textAlign='center'
           as='a'
           href={`/songs/${encodeUrl(title)}`}
           onClick={() => fireGoogleAnalyticsEvent(title)}

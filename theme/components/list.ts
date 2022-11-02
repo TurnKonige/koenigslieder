@@ -6,6 +6,7 @@ const styles: ComponentStyleConfig = {
       item: {
         bgColor: 'white',
         boxShadow: 'md',
+        outline: '1px solid #E4E4E4',
         rounded: 'md',
         fontSize: '1.2rem',
         width: '100%',
