@@ -1,7 +1,8 @@
 import { Text, Divider, Box } from '@chakra-ui/react';
+import { sortBy } from 'lodash';
 import { GetStaticProps, NextPage } from 'next';
-import { MetaTags } from '../components/MetaTags';
 
+import { MetaTags } from '../components/MetaTags';
 import { Playlist, PlaylistList } from '../components/PlaylistList';
 import { SongList } from '../components/SongList';
 import { contentfulClient } from '../lib/contentful';
@@ -48,13 +49,15 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
     getSongTitlesQuery
   );
 
+  const songs = sortBy(songTitles.songCollection.items, (song) => song.title);
+
   const playlists = await contentfulClient.request<PlaylistsResponse>(
     getPlaylistsQuery
   );
 
   return {
     props: {
-      songs: songTitles.songCollection.items,
+      songs,
       playlists: playlists.playlistCollection.items,
     },
   };

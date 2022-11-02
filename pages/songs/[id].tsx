@@ -18,7 +18,7 @@ export interface SongProps {
 
 const Songs: NextPage<SongProps> = ({ song }) => {
   const metaTagTitle = `${song.title} | Königslieder`;
-  const description = `Lyrics für ${song.title}!`; // \n ${song.lyrics.slice(0, 200)}…`
+  const description = `Lyrics für ${song.title}!`;
 
   return (
     <Box>
