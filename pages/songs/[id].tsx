@@ -1,46 +1,48 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
-import { Box, Flex, Text } from '@chakra-ui/react';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import { Box } from '@chakra-ui/react';
 
-import { SongData, FeaturedSongs } from '../../lib/music-data';
-import { Song } from '../../components/Song';
+import { SongTextProps, SongText } from '../../components/SongText';
 import { BackButton } from '../../components/BackButton';
 import { MetaTags } from '../../components/MetaTags';
+import { contentfulClient } from '../../lib/contentful';
+import { getSongQuery, SongResponse } from '../../lib/queries/songs';
+import {
+  getSongTitlesQuery,
+  SongTitleResponse,
+} from '../../lib/queries/songTitles';
+import { encodeUrl } from '../../lib/url';
 
 export interface SongProps {
-  song: SongData;
+  song: SongTextProps;
 }
 
-export default function Songs({ song }: SongProps) {
+const Songs: NextPage<SongProps> = ({ song }) => {
   const metaTagTitle = `${song.title} | Königslieder`;
-  const description = `Lyrics für ${song.title}!\n ${song.lyrics.slice(
-    0,
-    200
-  )}…`;
+  const description = `Lyrics für ${song.title}!`;
 
   return (
-    <Box display='flex' flexDirection='column' paddingX='5vw' paddingTop='1rem'>
+    <Box>
       <MetaTags title={metaTagTitle} description={description} />
-      <Song {...song} marginBottom='2rem' />
-      {song.audioFilePath && (
-        <Flex alignItems='center' flexDirection='column' marginY='3rem'>
-          <Text>Pianoversion by Felix 🎹🎵</Text>
-          <audio controls src={song.audioFilePath}>
-            Dein Browser unterstützt nicht die Wiedergabe von Audiodateien.
-            Bitte öffne die Seite in einem anderen Browser.
-          </audio>
-        </Flex>
-      )}
-      <BackButton variant='solid' marginTop='2rem' />
+      <SongText {...song} />
+      <BackButton w='100%' mt='8' />
     </Box>
   );
-}
+};
+
+export default Songs;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = FeaturedSongs.map((song) => {
-    return {
-      params: { id: song.title.toLowerCase() },
-    };
-  });
+  const response = await contentfulClient.request<SongTitleResponse>(
+    getSongTitlesQuery
+  );
+
+  const paths = response.songCollection.items.map(({ title }) => ({
+    params: {
+      id: encodeUrl(title),
+    },
+  }));
+
+  console.log('Paths', paths);
 
   return {
     paths,
@@ -48,15 +50,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const { id } = context.params;
-  const song = FeaturedSongs.find(
-    (s) => s.title.toLowerCase() === (id as string).toLowerCase()
-  );
+export const getStaticProps: GetStaticProps<SongProps> = async (context) => {
+  const song = await contentfulClient.request<SongResponse>(getSongQuery, {
+    title: context.params.id,
+  });
 
   return {
     props: {
-      song: song,
+      song: song.songCollection.items[0],
     },
   };
 };

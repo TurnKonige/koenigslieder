@@ -1,10 +1,17 @@
-import { List, ListItem, Box } from '@chakra-ui/react';
+import { List, ListItem, Flex } from '@chakra-ui/react';
 import { FaSpotify } from 'react-icons/fa';
 import { event } from 'nextjs-google-analytics';
 
-import { FeaturedPlaylists } from '../lib/music-data';
+export interface PlaylistListProps {
+  playlists: Playlist[];
+}
 
-export const PlaylistList: React.FC<{}> = () => {
+export interface Playlist {
+  title: string;
+  link: string;
+}
+
+export const PlaylistList: React.FC<PlaylistListProps> = ({ playlists }) => {
   const fireGoogleAnalyticsEvent = (playlistName: string) => {
     event('click_playlist', {
       category: 'spotify_playlist',
@@ -13,29 +20,18 @@ export const PlaylistList: React.FC<{}> = () => {
   };
 
   return (
-    <List spacing={5}>
-      {FeaturedPlaylists.map((playlist, index) => (
+    <List spacing={5} variant='cards'>
+      {playlists.map(({ title, link }, index) => (
         <ListItem
-          key={`${index}-${playlist.title}`}
-          boxShadow='md'
-          p='6'
-          rounded='md'
-          backgroundColor='#FFF'
-          fontSize='1.2rem'
+          key={`${index}-${title}`}
           as='a'
-          href={playlist.link}
-          width='100%'
-          display='block'
-          onClick={() => fireGoogleAnalyticsEvent(playlist.title)}
+          href={link}
+          onClick={() => fireGoogleAnalyticsEvent(title)}
         >
-          <Box
-            display='flex'
-            justifyContent='space-between'
-            alignItems='center'
-          >
-            {playlist.title}
+          <Flex justify='space-between' align='center'>
+            {title}
             <FaSpotify color='#444' />
-          </Box>
+          </Flex>
         </ListItem>
       ))}
     </List>
