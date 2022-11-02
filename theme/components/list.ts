@@ -1,4 +1,5 @@
 import { ComponentStyleConfig } from '@chakra-ui/react';
+import colors from '../foundations/colors';
 
 const styles: ComponentStyleConfig = {
   variants: {
@@ -6,7 +7,7 @@ const styles: ComponentStyleConfig = {
       item: {
         bgColor: 'white',
         boxShadow: 'md',
-        outline: '1px solid #E4E4E4',
+        outline: `1px solid ${colors.brand['200']}`,
         rounded: 'md',
         fontSize: '1.2rem',
         width: '100%',

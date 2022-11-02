@@ -32,7 +32,7 @@ const Home: NextPage<HomeProps> = ({ songs, playlists }) => {
       </Text>
       <SongList songs={songs} />
 
-      <Divider marginY='8' color='#A4A4A4' />
+      <Divider marginY='8' color='brand.500' />
 
       <Text textAlign='center' as='h1' fontSize='2rem' marginBottom='8'>
         Playlists
