@@ -22,7 +22,11 @@ const Songs: NextPage<SongProps> = ({ song }) => {
 
   return (
     <Box>
-      <MetaTags title={metaTagTitle} description={description} />
+      <MetaTags
+        title={metaTagTitle}
+        description={description}
+        imagePreviewText={song.title}
+      />
       <SongText {...song} />
       <BackButton w='100%' mt='8' />
     </Box>

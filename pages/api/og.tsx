@@ -37,6 +37,7 @@ export default function handler(req: NextRequest) {
           </div>
           <div
             style={{
+              textAlign: 'center',
               fontSize: '128px',
               marginBottom: '48px',
             }}

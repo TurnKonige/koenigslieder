@@ -25,7 +25,11 @@ const Home: NextPage<HomeProps> = ({ songs, playlists }) => {
 
   return (
     <Box>
-      <MetaTags title={title} description={description} />
+      <MetaTags
+        title={title}
+        description={description}
+        imagePreviewText='Königslieder 🎵'
+      />
 
       <Text textAlign='center' as='h1' fontSize='2rem' marginBottom='8'>
         Royale Songtexte
