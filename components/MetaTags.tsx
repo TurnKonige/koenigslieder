@@ -12,9 +12,7 @@ export const MetaTags: React.FC<MetaTagsProps> = ({
   imagePreviewText,
 }) => {
   const url = 'https://koenigslieder.de/';
-  const imagePreviewUrl = `https://koenigslieder-aya2zc8r2-treborium.vercel.app/api/og?title=${
-    imagePreviewText || title
-  }`;
+  const imagePreviewUrl = `${url}/api/og?title=${imagePreviewText || title}`;
 
   return (
     <Head>
