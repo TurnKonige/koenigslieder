@@ -24,17 +24,10 @@ export default function handler(req: NextRequest) {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            backgroundColor: '#F6F6F6',
+            backgroundColor: '#FDFDBD',
+            color: '#1A1423',
           }}
         >
-          <div
-            style={{
-              display: 'flex',
-              position: 'absolute',
-            }}
-          >
-            <CrownIcon />
-          </div>
           <div
             style={{
               textAlign: 'center',
@@ -66,27 +59,3 @@ export default function handler(req: NextRequest) {
     });
   }
 }
-
-const CrownIcon = () => {
-  return (
-    <svg
-      width='534'
-      height='500'
-      viewBox='0 0 484 453'
-      fill='none'
-      xmlns='http://www.w3.org/2000/svg'
-    >
-      <path
-        d='M478 86L458 387H350H242H134H26L6 86L134 178L242 10L350 178L478 86Z'
-        fill='#F2F2F2'
-      />
-      <path d='M26 448V412H458V448H26Z' fill='#F2F2F2' />
-      <path
-        d='M478 86L458 387H350H242H134H26L6 86L134 178L242 10L350 178L478 86Z'
-        stroke='#EEE'
-        stroke-width='10'
-      />
-      <path d='M26 448V412H458V448H26Z' stroke='#EEE' stroke-width='10' />
-    </svg>
-  );
-};
