@@ -4,11 +4,12 @@ import {
   Options,
 } from '@contentful/rich-text-react-renderer';
 import { Document, MARKS, BLOCKS, INLINES } from '@contentful/rich-text-types';
-import Link from 'next/link';
 import { ReactNode } from 'react';
 import { fromPairs } from 'lodash';
+
 import { Refrain } from '../components/Refrain';
 import { RichTextLinks } from '../components/SongText';
+import { Link } from '../components/Link';
 
 export const useRichText = (links: RichTextLinks) => {
   const entryMap = fromPairs(

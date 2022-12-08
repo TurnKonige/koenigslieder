@@ -6,23 +6,25 @@ import {
   IconButton,
 } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
-import { BiMenu, BiLinkExternal } from 'react-icons/bi';
-import { AiFillGithub, AiFillInstagram } from 'react-icons/ai';
+import { BiMenu } from 'react-icons/bi';
+import { AiFillGithub, AiOutlineInstagram } from 'react-icons/ai';
+import { RiShoppingCart2Line } from 'react-icons/ri';
+import { HiOutlineAcademicCap } from 'react-icons/hi';
 
 export const Menu: React.FC<{}> = () => {
   const router = useRouter();
 
   return (
-    <ChakraMenu>
+    <ChakraMenu autoSelect={false} placement='bottom'>
       <MenuButton
         as={IconButton}
         icon={<BiMenu />}
         fontSize='2rem'
         variant='none'
       />
-      <MenuList>
+      <MenuList rootProps={{ w: { base: '100%', md: 'auto' } }}>
         <MenuItem
-          icon={<BiLinkExternal />}
+          icon={<RiShoppingCart2Line />}
           onClick={() =>
             router.push('https://karlsruher-koenige.myspreadshop.de/')
           }
@@ -30,17 +32,17 @@ export const Menu: React.FC<{}> = () => {
           Königsshop
         </MenuItem>
         <MenuItem
-          icon={<BiLinkExternal />}
+          icon={<HiOutlineAcademicCap />}
           onClick={() =>
             router.push(
-              'https://buchsys.sport.uni-karlsruhe.de/angebote/aktueller_zeitraum/_Geraetturnen.html'
+              'https://sport-hochschulsport.sport.kit.edu/angebote/aktueller_zeitraum/_Geraetturnen.html'
             )
           }
         >
           Hochschulsport
         </MenuItem>
         <MenuItem
-          icon={<AiFillInstagram />}
+          icon={<AiOutlineInstagram />}
           onClick={() =>
             router.push('https://www.instagram.com/karlsruher.koenige/')
           }
