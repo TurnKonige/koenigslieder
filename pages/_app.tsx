@@ -1,7 +1,6 @@
-import { Box, ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react';
 import { GoogleAnalytics, usePagesViews } from 'nextjs-google-analytics';
 
-import { Footer } from '../components/Footer';
 import { Layout } from '../components/Layout';
 import { theme } from '../theme';
 

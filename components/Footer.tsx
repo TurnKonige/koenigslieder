@@ -5,7 +5,7 @@ import { Link } from './Link';
 export const Footer: React.FC = () => {
   return (
     <Box
-      width='100vw'
+      width='100%'
       paddingX='5vw'
       paddingY='2vh'
       bgColor='brand.200'

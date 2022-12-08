@@ -4,6 +4,7 @@ import { RiVipCrownFill as CrownIcon } from 'react-icons/ri';
 
 import { BackButton } from './BackButton';
 import { Menu } from './Menu';
+import { ProgressBar } from './ProgressBar';
 
 export const Navbar: React.FC = () => {
   const router = useRouter();
@@ -11,8 +12,7 @@ export const Navbar: React.FC = () => {
 
   return (
     <Box
-      width='100vw'
-      paddingY={2}
+      width='100%'
       boxShadow='md'
       position='sticky'
       top='0'
@@ -23,6 +23,7 @@ export const Navbar: React.FC = () => {
         display='flex'
         justifyContent='space-between'
         alignItems='center'
+        paddingY={2}
       >
         {isBasePath ? (
           <Icon as={CrownIcon} boxSize={8} />
@@ -31,6 +32,7 @@ export const Navbar: React.FC = () => {
         )}
         <Menu />
       </Container>
+      <ProgressBar />
     </Box>
   );
 };
