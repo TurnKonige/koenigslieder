@@ -22,7 +22,7 @@ export const Menu: React.FC<{}> = () => {
         fontSize='2rem'
         variant='none'
       />
-      <MenuList rootProps={{ w: '100%' }}>
+      <MenuList rootProps={{ w: { base: '100%', md: 'auto' } }}>
         <MenuItem
           icon={<RiShoppingCart2Line />}
           onClick={() =>
