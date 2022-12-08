@@ -1,6 +1,6 @@
-import { Box, Link, Text } from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
 import { AiFillGithub } from 'react-icons/ai';
-import NextLink from 'next/link';
+import { Link } from './Link';
 
 export const Footer: React.FC = () => {
   return (
@@ -13,22 +13,24 @@ export const Footer: React.FC = () => {
       justifyContent='space-between'
       alignItems='center'
     >
-      <Text color='brand.900'>
-        Created by{' '}
+      <Box>
+        <Text color='brand.900' display='inline-block' whiteSpace='pre-wrap'>
+          Created by{' '}
+        </Text>
         <Link
           color='teal.500'
           href='https://www.linkedin.com/in/robert-f-0b87a218a/'
         >
           Robert Fuchs
         </Link>
-      </Text>
-      <NextLink href='https://github.com/Treborium/koenigslieder'>
+      </Box>
+      <Link href='https://github.com/Treborium/koenigslieder'>
         <AiFillGithub
           size='1.5rem'
           aria-label='view source code on GitHub'
           color='brand.900'
         />
-      </NextLink>
+      </Link>
     </Box>
   );
 };

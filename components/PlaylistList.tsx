@@ -1,6 +1,8 @@
-import { List, ListItem, Flex } from '@chakra-ui/react';
+import { Flex, VStack } from '@chakra-ui/react';
 import { FaSpotify } from 'react-icons/fa';
 import { event } from 'nextjs-google-analytics';
+import { ListItem } from './ListItem';
+import { uniqueId } from 'lodash';
 
 export interface PlaylistListProps {
   playlists: Playlist[];
@@ -20,13 +22,12 @@ export const PlaylistList: React.FC<PlaylistListProps> = ({ playlists }) => {
   };
 
   return (
-    <List spacing={5} variant='cards'>
-      {playlists.map(({ title, link }, index) => (
+    <VStack spacing={5}>
+      {playlists.map(({ title, link }) => (
         <ListItem
-          key={`${index}-${title}`}
-          as='a'
           href={link}
           onClick={() => fireGoogleAnalyticsEvent(title)}
+          key={uniqueId('playlist_item_')}
         >
           <Flex justify='space-between' align='center'>
             {title}
@@ -34,6 +35,6 @@ export const PlaylistList: React.FC<PlaylistListProps> = ({ playlists }) => {
           </Flex>
         </ListItem>
       ))}
-    </List>
+    </VStack>
   );
 };
