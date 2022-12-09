@@ -39,7 +39,7 @@ const Home: NextPage<HomeProps> = ({ songs, playlists }) => {
       <Divider marginY='8' color='brand.500' />
 
       <Text textAlign='center' as='h1' fontSize='2rem' marginBottom='8'>
-        Playlists
+        Spotify Playlists
       </Text>
       <PlaylistList playlists={playlists} />
     </Box>
