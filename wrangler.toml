@@ -1,7 +1,8 @@
 name = "koenigslieder"
-type = "javascript"
+compatibility_date = "2025-06-02"
 account_id = "8cb9b4f54af837cd2f1082f64884d147"
 
 [site]
 bucket = "./out"
-entry-point = "./"
+
+main = "index.js"
