@@ -1,5 +1,5 @@
 import { useToken } from '@chakra-ui/react';
-import { MouseEventHandler, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { Link } from './Link';
 
 export interface ListItemProps {

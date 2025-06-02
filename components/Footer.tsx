@@ -1,4 +1,4 @@
-import { Box, Container, Text } from '@chakra-ui/react';
+import { Box, Container } from '@chakra-ui/react';
 import { AiFillGithub } from 'react-icons/ai';
 import { Link } from './Link';
 

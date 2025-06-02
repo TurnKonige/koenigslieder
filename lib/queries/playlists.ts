@@ -1,5 +1,3 @@
-import { Playlist } from '../../components/PlaylistList';
-
 // Dummy data for playlists
 export const playlists = [
   {

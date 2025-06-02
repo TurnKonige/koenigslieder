@@ -11,7 +11,7 @@ import { AiFillGithub, AiOutlineInstagram } from 'react-icons/ai';
 import { RiShoppingCart2Line } from 'react-icons/ri';
 import { HiOutlineAcademicCap } from 'react-icons/hi';
 
-export const Menu: React.FC<{}> = () => {
+export const Menu: React.FC = () => {
   const router = useRouter();
 
   return (
