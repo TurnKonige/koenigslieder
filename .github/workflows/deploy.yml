@@ -39,7 +39,7 @@ jobs:
         run: pnpm install
 
       - name: Build with OpenNext for Cloudflare
-        run: npx opennextjs-cloudflare
+        run: npx opennextjs-cloudflare build
 
       - name: Publish to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
