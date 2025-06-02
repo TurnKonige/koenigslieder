@@ -5,16 +5,11 @@ import { GetStaticProps, NextPage } from 'next';
 import { MetaTags } from '../components/MetaTags';
 import { Playlist, PlaylistList } from '../components/PlaylistList';
 import { SongList } from '../components/SongList';
-import { contentfulClient } from '../lib/contentful';
-import { getPlaylistsQuery, PlaylistsResponse } from '../lib/queries/playlists';
-import {
-  getSongTitlesQuery,
-  SongTitle,
-  SongTitleResponse,
-} from '../lib/queries/songTitles';
+import { playlists } from '../lib/queries/playlists';
+import { songTitles } from '../lib/queries/songTitles';
 
 export interface HomeProps {
-  songs: SongTitle[];
+  songs: { title: string }[];
   playlists: Playlist[];
 }
 
@@ -49,20 +44,11 @@ const Home: NextPage<HomeProps> = ({ songs, playlists }) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  const songTitles = await contentfulClient.request<SongTitleResponse>(
-    getSongTitlesQuery
-  );
-
-  const songs = sortBy(songTitles.songCollection.items, (song) => song.title);
-
-  const playlists = await contentfulClient.request<PlaylistsResponse>(
-    getPlaylistsQuery
-  );
-
+  const songs = sortBy(songTitles, (song) => song.title);
   return {
     props: {
       songs,
-      playlists: playlists.playlistCollection.items,
+      playlists,
     },
   };
 };

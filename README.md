@@ -24,3 +24,5 @@ Run production server
 ```shell
 yarn start
 ```
+
+**props to [Robert Fuchs](https://github.com/Treborium)**

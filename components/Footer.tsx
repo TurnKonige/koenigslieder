@@ -12,7 +12,7 @@ export const Footer: React.FC = () => {
         paddingY={4}
       >
         <Box>
-          <Text color='brand.900' display='inline-block' whiteSpace='pre-wrap'>
+          {/* <Text color='brand.900' display='inline-block' whiteSpace='pre-wrap'>
             Created by{' '}
           </Text>
           <Link
@@ -20,7 +20,7 @@ export const Footer: React.FC = () => {
             href='https://www.linkedin.com/in/robert-f-0b87a218a/'
           >
             Robert Fuchs
-          </Link>
+          </Link> */}
         </Box>
         <Link href='https://github.com/Treborium/koenigslieder'>
           <AiFillGithub

@@ -4,12 +4,8 @@ import { Box } from '@chakra-ui/react';
 import { SongTextProps, SongText } from '../../components/SongText';
 import { BackButton } from '../../components/BackButton';
 import { MetaTags } from '../../components/MetaTags';
-import { contentfulClient } from '../../lib/contentful';
-import { getSongQuery, SongResponse } from '../../lib/queries/songs';
-import {
-  getSongTitlesQuery,
-  SongTitleResponse,
-} from '../../lib/queries/songTitles';
+import { songs } from '../../lib/queries/songs';
+import { songTitles } from '../../lib/queries/songTitles';
 import { encodeUrl } from '../../lib/url';
 
 export interface SongProps {
@@ -36,30 +32,22 @@ const Songs: NextPage<SongProps> = ({ song }) => {
 export default Songs;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const response = await contentfulClient.request<SongTitleResponse>(
-    getSongTitlesQuery
-  );
-
-  const paths = response.songCollection.items.map(({ title }) => ({
-    params: {
-      id: encodeUrl(title),
-    },
+  const paths = songTitles.map(({ title }) => ({
+    params: { id: encodeUrl(title) },
   }));
-
   return {
     paths,
     fallback: false,
   };
 };
 
-export const getStaticProps: GetStaticProps<SongProps> = async (context) => {
-  const song = await contentfulClient.request<SongResponse>(getSongQuery, {
-    title: context.params.id,
-  });
-
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const id = params?.id as string;
+  const song = songs.find((s) => encodeUrl(s.title) === id);
+  if (!song) {
+    return { notFound: true };
+  }
   return {
-    props: {
-      song: song.songCollection.items[0],
-    },
+    props: { song },
   };
 };
