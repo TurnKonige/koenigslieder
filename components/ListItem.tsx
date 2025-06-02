@@ -4,7 +4,7 @@ import { Link } from './Link';
 
 export interface ListItemProps {
   href: string;
-  onClick?: MouseEventHandler<HTMLDivElement>;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
   children?: ReactNode;
 }
 

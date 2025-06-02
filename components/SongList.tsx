@@ -2,9 +2,12 @@ import { VStack } from '@chakra-ui/react';
 import { uniqueId } from 'lodash';
 import { event } from 'nextjs-google-analytics';
 
-import { SongTitle } from '../lib/queries/songTitles';
 import { encodeUrl } from '../lib/url';
 import { ListItem } from './ListItem';
+
+interface SongTitle {
+  title: string;
+}
 
 export interface SongListProps {
   songs: SongTitle[];

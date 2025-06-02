@@ -4,51 +4,59 @@ import {
   Flex,
   Box,
   Text,
-  Collapse,
   BoxProps,
 } from '@chakra-ui/react';
 import { BsChevronDown } from 'react-icons/bs';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export interface RefrainProps {
   text: string;
 }
 
+const MotionBox = motion(Box);
+
 export const Refrain: React.FC<RefrainProps> = ({ text }) => {
   const { isOpen, onToggle } = useDisclosure();
   const [gray200] = useToken('colors', ['gray.200']);
-
   const [firstLine, ...lyricsRest] = text.split('\n');
 
   return (
     <Box my={6}>
       <TopBorderWithLabel label='refrain' bgColor={gray200} />
-      <Flex
-        py='0.5rem'
-        whiteSpace='pre-line'
-        onClick={onToggle}
-        cursor='pointer'
-        borderBottom={`1px solid ${gray200}`}
-        w='100%'
-      >
-        <Collapse
-          startingHeight='1.5em'
-          in={isOpen}
-          style={{ width: 'inherit' }}
+      <Box borderBottom={`1px solid ${gray200}`} w='100%'>
+        <Flex
+          py='0.5rem'
+          onClick={onToggle}
+          cursor='pointer'
+          justify='space-between'
+          align='center'
         >
-          <Flex justify='space-between' align='center'>
-            {firstLine}
-            <Box
-              transform={isOpen ? 'rotate(180deg)' : 'rotate(0)'}
-              transition='0.2s'
-              h='min-content'
-              w='min-content'
+          <Text>{firstLine}</Text>
+          <Box
+            transform={isOpen ? 'rotate(180deg)' : 'rotate(0)'}
+            transition='0.2s'
+            h='min-content'
+            w='min-content'
+          >
+            <BsChevronDown />
+          </Box>
+        </Flex>
+
+        <AnimatePresence initial={false}>
+          {isOpen && (
+            <MotionBox
+              initial={{ height: '1.5em' }}
+              animate={{ height: 'auto' }}
+              exit={{ height: '1.5em' }}
+              overflow='hidden'
             >
-              <BsChevronDown />
-            </Box>
-          </Flex>
-          {lyricsRest.join('\n')}
-        </Collapse>
-      </Flex>
+              <Text whiteSpace='pre-line' py={2}>
+                {lyricsRest.join('\n')}
+              </Text>
+            </MotionBox>
+          )}
+        </AnimatePresence>
+      </Box>
     </Box>
   );
 };
