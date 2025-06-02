@@ -2,7 +2,5 @@ name = "koenigslieder"
 compatibility_date = "2025-06-02"
 account_id = "8cb9b4f54af837cd2f1082f64884d147"
 
-[bucket]
-bucket = "./out"
-
-main = "index.html"
+[assets]
+directory = "./out"
