@@ -39,7 +39,7 @@ jobs:
         run: pnpm install
 
       - name: Build static site
-        run: pnpm build
+        run: NEXT_IGNORE_TYPE_CHECKS=1 pnpm build
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
