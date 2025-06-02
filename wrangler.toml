@@ -4,5 +4,3 @@ account_id = "8cb9b4f54af837cd2f1082f64884d147"
 
 [site]
 bucket = "./out"
-
-main = "index.js"
