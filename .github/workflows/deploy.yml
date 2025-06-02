@@ -46,5 +46,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: YOUR_PROJECT_NAME # replace with your actual Pages project name
+          projectName: königslieder # replace with your actual Pages project name
           directory: out
