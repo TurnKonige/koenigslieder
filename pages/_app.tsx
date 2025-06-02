@@ -4,7 +4,7 @@ import { GoogleAnalytics, usePageViews } from 'nextjs-google-analytics';
 import { Layout } from '../components/Layout';
 import { theme } from '../theme';
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps }: any) {
   usePageViews();
 
   return (
