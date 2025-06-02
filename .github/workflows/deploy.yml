@@ -1,4 +1,4 @@
-name: Deploy to Cloudflare Workers via OpenNext
+name: Deploy to Cloudflare Workers via @opennextjs/cloudflare
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 9 # or the latest version you prefer
+          version: 9 # or latest
           run_install: false
 
       - name: Get pnpm store path
@@ -38,8 +38,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build with OpenNext
-        run: npx opennext@latest build --platform=cloudflare
+      - name: Build with OpenNext for Cloudflare
+        run: npx opennextjs-cloudflare
 
       - name: Publish to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
