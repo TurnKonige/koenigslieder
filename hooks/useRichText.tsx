@@ -8,13 +8,8 @@ import { ReactNode } from 'react';
 import { fromPairs } from 'lodash';
 
 import { Refrain } from '../components/Refrain';
+import { RichTextLinks } from '../components/SongText';
 import { Link } from '../components/Link';
-
-export interface RichTextLinks {
-  entries: {
-    block: Array<{ sys: { id: string }; complete: string }>;
-  };
-}
 
 export const useRichText = (links: RichTextLinks) => {
   const entryMap = fromPairs(

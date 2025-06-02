@@ -13,16 +13,15 @@ A mobile first webpage for the KIT gymnastics sportsclub 🤸‍♀️
 
 ## Getting Started
 
-Run development server
-
-```shell
-yarn dev
+Install
+```
+pnpm i
 ```
 
-Run production server
+Run dev
 
 ```shell
-yarn start
+pnpm dev
 ```
 
 **props to [Robert Fuchs](https://github.com/Treborium)**

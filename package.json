@@ -12,6 +12,7 @@
     "**/*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
+    "@chakra-ui/anatomy": "^2.3.4",
     "@chakra-ui/react": "^2.10.9",
     "@contentful/rich-text-react-renderer": "^16.0.1",
     "@contentful/rich-text-types": "^17.0.0",
